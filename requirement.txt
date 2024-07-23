@@ -1,0 +1,10 @@
+nltk
+PyPDF2
+numpy
+sentence-transformers
+scikit-learn
+rank-bm25
+transformers
+torch
+google-generativeai
+pymilvus
