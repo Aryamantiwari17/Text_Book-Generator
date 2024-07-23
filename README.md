@@ -17,13 +17,16 @@ This system uses advanced natural language processing and machine learning techn
 
 The system processes PDF textbooks, chunks the content, builds a RAPTOR index, and stores embeddings in a Milvus vector database. It uses a hybrid retrieval approach combining SBERT and DPR embeddings, re-ranks results, and generates answers using Google's Gemini Pro model.
 
+## Setup Instructions
+
+1. Clone this repository:
 git clone https://github.com/yourusername/textbook-qa-system.git
 cd textbook-qa-system
-Copy
-2. Install dependencies:
+
+3. Install dependencies:
 pip install -r requirements.txt
 Copy
-3. Set up Milvus:
+4. Set up Milvus:
 - Follow the [official Milvus installation guide](https://milvus.io/docs/install_standalone-docker.md)
 - Start the Milvus server
 
