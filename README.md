@@ -20,7 +20,7 @@ The system processes PDF textbooks, chunks the content, builds a RAPTOR index, a
 ## Setup Instructions
 
 1. Clone this repository:
-git clone https://github.com/yourusername/textbook-qa-system.git
+git clone https://github.com/Aryamantiwari17/Text_Book-Generator?tab=readme-ov-file
 cd textbook-qa-system
 
 3. Install dependencies:
