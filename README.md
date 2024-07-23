@@ -28,6 +28,8 @@ pip install -r requirements.txt
 Copy
 4. Set up Milvus:
 - Follow the [official Milvus installation guide](https://milvus.io/docs/install_standalone-docker.md)
+-  curl -sfL https://raw.githubusercontent.com/milvus-io/milvus/master/scripts/standalone_embed.sh -o
+-  standalone_embed.sh
 - Start the Milvus server
 
 4. Configure API keys:
@@ -95,10 +97,19 @@ For exact versions, see `requirements.txt`.
    - Issues arise when deploying the system through Streamlit
    - Integration with Milvus database encounters problems, causing the system to stop after deployment in Streamlit
 
-## Contributing
+## Output
+![Screenshot from 2024-07-24 01-53-19](https://github.com/user-attachments/assets/20ed46f3-72d9-4d9f-9dd2-431272cb6fdf)
+![Screenshot from 2024-07-24 01-56-28](https://github.com/user-attachments/assets/5d5d6fa9-aec7-4bc2-9a9a-7256ba0255de)
+![Screenshot from 2024-07-24 01-56-42](https://github.com/user-attachments/assets/fb32e72a-378d-4a42-9198-d51208afad79)
+![Screenshot from 2024-07-24 01-56-55](https://github.com/user-attachments/assets/604c01c9-3ed4-4d4f-82b6-9bdd3671dcef)
+
+
+
+
+
+
 
 Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or request features.
 
-## License
+## Working 
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
