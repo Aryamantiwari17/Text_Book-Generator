@@ -1,136 +1,92 @@
-RAPTOR Textbook Processing and Question Answering System
-This project involves extracting content from textbooks, chunking and embedding the data, creating a hierarchical RAPTOR index, and implementing a retrieval system with re-ranking for answering questions based on the indexed content.
+# Textbook Question Answering System
 
-Repository Structure
-css
-Copy code
-.
-├── README.md
-├── requirements.txt
-├── main.py
-├── extract_textbook_content.py
-├── chunk_text.py
-├── embed_chunks.py
-├── cluster_embeddings.py
-├── build_raptor_tree.py
-├── store_raptor_in_milvus.py
-├── query_expansion.py
-├── hybrid_retrieval.py
-├── rerank_documents.py
-├── answer_question.py
-├── milvus_utils.py
-└── textbooks
-    ├── fesc111.pdf
-    ├── fesc101.pdf
-    └── fesc102.pdf
-Dependencies
-List all necessary dependencies in the requirements.txt file:
+This system uses advanced natural language processing and machine learning techniques to answer questions based on textbook content. It employs a RAPTOR (Recursive Application of Patterns To Organize Representation) indexing structure for efficient retrieval and a state-of-the-art language model for generating accurate answers.
 
-Copy code
-nltk
-PyPDF2
-numpy
-sentence-transformers
-scikit-learn
-rank-bm25
-transformers
-torch
-google-generativeai
-pymilvus
-Setup Instructions
-Clone the Repository
+## Table of Contents
+1. [System Overview](#system-overview)
+2. [Setup Instructions](#setup-instructions)
+3. [Usage Guide](#usage-guide)
+4. [Textbooks Used](#textbooks-used)
+5. [System Components](#system-components)
+6. [Dependencies](#dependencies)
+7. [Known Limitations](#known-limitations)
+8. [Contributing](#contributing)
+9. [License](#license)
 
-sh
-Copy code
-git clone <your-repository-url>
-cd <repository-directory>
-Install Dependencies
+## System Overview
 
-sh
-Copy code
+The system processes PDF textbooks, chunks the content, builds a RAPTOR index, and stores embeddings in a Milvus vector database. It uses a hybrid retrieval approach combining SBERT and DPR embeddings, re-ranks results, and generates answers using Google's Gemini Pro model.
+
+git clone https://github.com/yourusername/textbook-qa-system.git
+cd textbook-qa-system
+Copy
+2. Install dependencies:
 pip install -r requirements.txt
-Download NLTK Data
+Copy
+3. Set up Milvus:
+- Follow the [official Milvus installation guide](https://milvus.io/docs/install_standalone-docker.md)
+- Start the Milvus server
 
-python
-Copy code
-import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-Configure Google Generative AI
+4. Configure API keys:
+- Create a `.env` file in the project root
+- Add your Google API key: `GOOGLE_API_KEY=your_api_key_here`
 
-Set your Google Generative AI API key:
+5. Prepare textbooks:
+- Place PDF textbooks in the `textbooks/` directory
 
-python
-Copy code
-import google.generativeai as genai
-genai.configure(api_key="YOUR_GOOGLE_GENERATIVE_AI_API_KEY")
-Prepare Textbooks
+## Usage Guide
 
-Ensure your textbooks are placed in the textbooks directory.
-
-Running the System
-Run the Main Script
-
-sh
-Copy code
+1. Process textbooks and build the RAPTOR index:
+python build_index.py
+Copy
+2. Start the question-answering interface:
 python main.py
-Detailed Description of Components
-main.py
-The main script coordinates the workflow:
+Copy
+3. Enter your questions when prompted. Type 'quit' to exit.
 
-Connects to Milvus.
-Processes textbooks by extracting content, chunking, and embedding the data.
-Creates RAPTOR trees and stores them in Milvus.
-Implements a query loop for user interaction to answer questions.
-extract_textbook_content.py
-Extracts text content from PDF textbooks using PyPDF2.
+## Textbooks Used
 
-chunk_text.py
-Chunks the extracted text into manageable sizes for embedding, considering token limits.
+- FESC111 (link to textbook if publicly available)
+- FESC101 (link to textbook if publicly available)
+- FESC102 (link to textbook if publicly available)
 
-embed_chunks.py
-Generates embeddings for text chunks using SBERT.
+## System Components
 
-cluster_embeddings.py
-Clusters the embeddings using Gaussian Mixture Models.
+1. **Content Extraction**: Uses PyPDF2 to extract text from PDF textbooks.
+2. **Data Chunking**: Splits text into manageable chunks using NLTK.
+3. **RAPTOR Indexing**: 
+- Generates embeddings using SentenceTransformer
+- Clusters embeddings with GaussianMixture
+- Builds a hierarchical RAPTOR tree structure
+4. **Retrieval**:
+- Implements hybrid retrieval using SBERT and DPR embeddings
+- Performs query expansion with NLTK and WordNet
+5. **Re-ranking**: Uses cosine similarity with SBERT embeddings
+6. **Question Answering**: Utilizes Google's Gemini Pro model for answer generation
 
-build_raptor_tree.py
-Builds a hierarchical RAPTOR tree from the clustered embeddings.
+## Dependencies
 
-store_raptor_in_milvus.py
-Stores the RAPTOR tree in Milvus.
+- nltk
+- PyPDF2
+- sentence-transformers
+- scikit-learn
+- torch
+- transformers
+- google-generativeai
+- pymilvus
 
-query_expansion.py
-Expands user queries using stemming and synonyms for better retrieval performance.
+For exact versions, see `requirements.txt`.
 
-hybrid_retrieval.py
-Combines SBERT and DPR embeddings for hybrid retrieval from Milvus.
+## Known Limitations
 
-rerank_documents.py
-Re-ranks retrieved documents based on cosine similarity with the query.
+- The system's performance depends on the quality and relevance of the input textbooks.
+- Very long textbooks may require significant processing time during indexing.
+- The system may struggle with highly specialized or technical questions outside the scope of the textbooks.
 
-answer_question.py
-Generates answers to user queries based on the re-ranked documents using Google Generative AI.
+## Contributing
 
-milvus_utils.py
-Utility functions for connecting to Milvus, creating collections, and managing indexes.
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or request features.
 
-Textbook Titles and Links
-Include the titles and links to the textbooks used for content extraction:
+## License
 
-FESC 111 Textbook
-
-Download Link
-FESC 101 Textbook
-
-Download Link
-FESC 102 Textbook
-
-Download Link
-User Interface (Optional)
-If a user interface is developed, provide instructions on how to access and use it.
-
-Submitting the Project
-Once everything is set up and running, submit the GitHub repository link by replying to the assessment invite email.
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
