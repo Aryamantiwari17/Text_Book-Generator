@@ -25,7 +25,7 @@ nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 
-genai.configure(api_key="AIzaSyA0AOlVRWetP6_JPE2zZ9_NWKZfSXNboMU")
+genai.configure(api_key="Enter your API-key")
 
 sbert_model = SentenceTransformer('all-mpnet-base-v2')  # This model produces 768-dimensional embeddings
 dpr_question_encoder = DPRQuestionEncoder.from_pretrained("facebook/dpr-question_encoder-single-nq-base")
