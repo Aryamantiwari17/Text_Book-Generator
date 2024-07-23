@@ -10,8 +10,9 @@ This system uses advanced natural language processing and machine learning techn
 5. [System Components](#system-components)
 6. [Dependencies](#dependencies)
 7. [Known Limitations](#known-limitations)
-8. [Contributing](#contributing)
-9. [License](#license)
+8. [Output](Output)
+9. [Contributing](#contributing)
+10. [Individual Task](#Individualtask)
 
 ## System Overview
 
@@ -105,10 +106,9 @@ For exact versions, see `requirements.txt`.
 
 
 
-
-
-##Contribution
+## Contribution
 
 Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, or request features.
 
-
+## Individual Task
+Download The Zip File and Find all the tasks individually as mentioned.
