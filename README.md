@@ -49,9 +49,9 @@ Copy
 
 ## Textbooks Used
 
-- FESC111 (link to textbook if publicly available)
-- FESC101 (link to textbook if publicly available)
-- FESC102 (link to textbook if publicly available)
+- FESC101 (Above Given)
+- FESC105 (Above Given)
+- FESC106 (Above Given)
 
 ## System Components
 
@@ -82,9 +82,18 @@ For exact versions, see `requirements.txt`.
 
 ## Known Limitations
 
-- The system's performance depends on the quality and relevance of the input textbooks.
-- Very long textbooks may require significant processing time during indexing.
-- The system may struggle with highly specialized or technical questions outside the scope of the textbooks.
+1. Input and Processing Constraints:
+   - System performance is heavily dependent on the quality and relevance of input textbooks
+   - Very long textbooks require significant processing time during indexing
+   - The system may struggle with highly specialized or technical questions outside the scope of the textbooks
+
+2. Token and Usage Limitations:
+   - Free versions of language models (like Gemini) restrict the number of tokens, limiting the amount of text that can be processed
+   - Daily usage limits for free services can be quickly exceeded, potentially interrupting system functionality
+
+3. Deployment and Integration Challenges:
+   - Issues arise when deploying the system through Streamlit
+   - Integration with Milvus database encounters problems, causing the system to stop after deployment in Streamlit
 
 ## Contributing
 
